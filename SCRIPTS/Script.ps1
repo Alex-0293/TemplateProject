@@ -40,8 +40,9 @@ trap {
 #########################################################################
 Clear-Host
 
-[string]$MyScriptRoot = Get-WorkDir
-[string]$Global:ProjectRoot = Split-Path $MyScriptRoot -parent
+[string]$Global:MyScriptRoot       = Get-WorkDir
+[string]$Global:GlobalSettingsPath = "C:\DATA\Projects\GlobalSettings\SETTINGS\Settings.ps1"
 
-Get-VarsFromFile    "$ProjectRoot\VARS\Vars.ps1"
-Initialize-Logging   $ProjectRoot  "Latest"
+Get-SettingsFromFile -SettingsFile $Global:GlobalSettingsPath
+Get-SettingsFromFile -SettingsFile "$ProjectRoot\$SETTINGSFolder\Settings.ps1"
+Initialize-Logging   "$ProjectRoot\$LOGSFolder\$ErrorsLogFileName" "Latest"
