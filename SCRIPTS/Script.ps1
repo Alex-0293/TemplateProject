@@ -13,3 +13,12 @@ trap {
     exit 1
 }
 Clear-Host
+
+
+
+
+
+
+
+
+. "$GlobalSettings\$SCRIPTSFolder\Finish.ps1"
