@@ -1,7 +1,12 @@
 ######################### value replacement #####################
 
+
+
 ######################### no replacement ########################
-    [bool]  $Global:LocalSettingsSuccessfullyLoaded  = $true
+
+
+
+[bool]  $Global:LocalSettingsSuccessfullyLoaded  = $true
 # Error trap
     trap {
         $Global:LocalSettingsSuccessfullyLoaded = $False

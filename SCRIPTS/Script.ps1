@@ -1,7 +1,17 @@
-$MyScriptRoot = "C:\Users\Alex\Documents\PROJECTS\VMUtils\SCRIPTS"
-$GlobalInitScript = "$(split-path -path (Split-Path -path $MyScriptRoot -Parent) -parent)\GlobalSettings\SCRIPTS\Init.ps1"
+<#
+    .SYNOPSIS 
+        .AUTOR
+        .DATE
+        .VER
+    .DESCRIPTION
+    .PARAMETER
+    .EXAMPLE
+#>
+$MyScriptRoot = "%ProjectRoot%"
+$InitScript   = "C:\DATA\Projects\GlobalSettings\SCRIPTS\Init.ps1"
 
-. "$GlobalInitScript" -MyScriptRoot $MyScriptRoot
+. "$InitScript" -MyScriptRoot $MyScriptRoot
+
 # Error trap
 trap {
     if ($Global:Logger) {
@@ -12,13 +22,11 @@ trap {
     }   
     exit 1
 }
+################################# Script start here #################################
 Clear-Host
 
 
 
 
-
-
-
-
+################################# Script end here ###################################
 . "$GlobalSettings\$SCRIPTSFolder\Finish.ps1"
