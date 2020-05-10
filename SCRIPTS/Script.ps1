@@ -1,22 +1,28 @@
 <#
     .SYNOPSIS 
-        .AUTOR
-        .DATE
-        .VER
+        .AUTHOR %Author%
+        .DATE   %Date%
+        .VER    %Ver%
+        .LANG   %Lang%   
     .DESCRIPTION
+        %Description%
     .PARAMETER
     .EXAMPLE
+        %Example%
 #>
+Param (
+    
+)
 Clear-Host
 $Global:ScriptName = $MyInvocation.MyCommand.Name
-$InitScript        = "C:\DATA\Projects\GlobalSettings\SCRIPTS\Init.ps1"
-if (. "$InitScript" -MyScriptRoot (Split-Path $PSCommandPath -Parent)) { exit 1 }
+$InitScript        = "%InitScriptPath%"
+if (. "$InitScript" -MyScriptRoot (Split-Path $PSCommandPath -Parent) -force ) { exit 1 }
 
 # Error trap
 trap {
     if ($Global:Logger) {
-       Get-ErrorReporting $_
-        . "$GlobalSettings\$SCRIPTSFolder\Finish.ps1" 
+        Get-ErrorReporting $_
+        %FinishScript% 
     }
     Else {
         Write-Host "There is error before logging initialized." -ForegroundColor Red
@@ -30,4 +36,4 @@ trap {
 
 
 ################################# Script end here ###################################
-. "$GlobalSettings\$SCRIPTSFolder\Finish.ps1"
+%FinishScript%
