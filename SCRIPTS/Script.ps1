@@ -25,7 +25,7 @@
 Param (
     
 )
-Clear-Host
+clear-host
 $Global:ScriptInvocation = $MyInvocation
 $InitScript        = "%InitScriptPath%"
 . "$InitScript" -MyScriptRoot (Split-Path $PSCommandPath -Parent)
@@ -33,8 +33,9 @@ if ($LastExitCode) { exit 1 }
 
 # Error trap
 trap {
-    if ($Global:Logger) {
+    if (get-module -FullyQualifiedName AlexkUtils) {
         Get-ErrorReporting $_
+
         %FinishScript% 
     }
     Else {
