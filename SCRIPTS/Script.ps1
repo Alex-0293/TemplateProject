@@ -39,7 +39,7 @@ trap {
         %FinishScript% 
     }
     Else {
-        Write-Host "[$($MyInvocation.MyCommand.path)] There is error before logging initialized." -ForegroundColor Red
+        Write-Host "[$($MyInvocation.MyCommand.path)] There is error before logging initialized. Error: $_" -ForegroundColor Red
     }   
     exit 1
 }
