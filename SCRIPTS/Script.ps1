@@ -23,12 +23,15 @@
 
 #>
 Param (
-    
+    [Parameter( Mandatory = $false, Position = 0, HelpMessage = "Initialize global settings." )]
+    [bool] $InitGlobal = $true,
+    [Parameter( Mandatory = $false, Position = 1, HelpMessage = "Initialize local settings." )]
+    [bool] $InitLocal  = $true   
 )
-clear-host
+
 $Global:ScriptInvocation = $MyInvocation
 $InitScript        = "%InitScriptPath%"
-. "$InitScript" -MyScriptRoot (Split-Path $PSCommandPath -Parent)
+. "$InitScript" -MyScriptRoot (Split-Path $PSCommandPath -Parent) -InitGlobal $InitGlobal -InitLocal $InitLocal
 if ($LastExitCode) { exit 1 }
 
 # Error trap
