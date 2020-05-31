@@ -30,14 +30,18 @@ Param (
 )
 
 $Global:ScriptInvocation = $MyInvocation
-if ($env:AlexKFrameworkInitScript){. "$env:AlexKFrameworkInitScript" -MyScriptRoot (Split-Path $PSCommandPath -Parent) -InitGlobal $InitGlobal -InitLocal $InitLocal} Else {Write-host "Environmental variable [AlexKFrameworkInitScript] does not exist!" -ForegroundColor Red; exit 1}
+if ($env:AlexKFrameworkInitScript){
+    . "$env:AlexKFrameworkInitScript" -MyScriptRoot (Split-Path $PSCommandPath -Parent) -InitGlobal $InitGlobal -InitLocal $InitLocal
+} Else {
+    Write-host "Environmental variable [AlexKFrameworkInitScript] does not exist!" -ForegroundColor Red
+     exit 1
+}
 if ($LastExitCode) { exit 1 }
 
 # Error trap
 trap {
     if (get-module -FullyQualifiedName AlexkUtils) {
         Get-ErrorReporting $_
-
         %FinishScript% 
     }
     Else {
