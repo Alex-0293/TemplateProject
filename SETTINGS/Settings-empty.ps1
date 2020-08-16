@@ -9,7 +9,7 @@
 
 [bool]  $Global:LocalSettingsSuccessfullyLoaded  = $true
 # Error trap
-    trap {
-        $Global:LocalSettingsSuccessfullyLoaded = $False
-        exit 1
-    }
+trap {
+    $Global:LocalSettingsSuccessfullyLoaded = $False
+    exit 1
+}

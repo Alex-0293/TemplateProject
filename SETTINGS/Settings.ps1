@@ -1,3 +1,5 @@
+######################### local section #####################
+
 ######################### value replacement #####################
 
 
@@ -8,8 +10,7 @@
 
 [bool]  $Global:LocalSettingsSuccessfullyLoaded  = $true
 # Error trap
-    trap {
-        $Global:LocalSettingsSuccessfullyLoaded = $False
-        exit 1
-    }
-######################### local section #########################    
+trap {
+    $Global:LocalSettingsSuccessfullyLoaded = $False
+    exit 1
+}
