@@ -1,9 +1,9 @@
 <#
-    .NOTE
-        .AUTHOR %Author%
-        .DATE   %Date%
-        .VER    %Ver%
-        .LANG   %Lang%
+    .NOTES
+        AUTHOR %Author%
+        DATE   %Date%
+        VER    %Ver%
+        LANG   %Lang%
         
     .LINK
         %ProjectURL%
@@ -16,7 +16,7 @@
     .DESCRIPTION
         %Description% 
 
-    .PARAMETER
+    
 
     .EXAMPLE
         %Example%
@@ -42,7 +42,7 @@ if ($LastExitCode) { exit 1 }
 trap {
     if (get-module -FullyQualifiedName AlexkUtils) {
         Get-ErrorReporting $_
-        . "$GlobalSettingsPath\$SCRIPTSFolder\Finish.ps1" 
+        . "$($Global:gsGlobalSettingsPath)\$($Global:gsSCRIPTSFolder)\Finish.ps1" 
     }
     Else {
         Write-Host "[$($MyInvocation.MyCommand.path)] There is error before logging initialized. Error: $_" -ForegroundColor Red
@@ -57,4 +57,4 @@ trap {
 
 
 ################################# Script end here ###################################
-. "$GlobalSettingsPath\$SCRIPTSFolder\Finish.ps1" 
+. "$($Global:gsGlobalSettingsPath)\$($Global:gsSCRIPTSFolder)\Finish.ps1" 

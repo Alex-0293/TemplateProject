@@ -1,9 +1,9 @@
 <#
-    .NOTE
-        .AUTHOR %Author%
-        .DATE   %Date%
-        .VER    %Ver%
-        .LANG   %Lang%
+    .NOTES
+        AUTHOR %Author%
+        DATE   %Date%
+        VER    %Ver%
+        LANG   %Lang%
         
     .LINK
         %ProjectURL%
@@ -16,7 +16,7 @@
     .DESCRIPTION
         %Description% 
 
-    .PARAMETER
+    
 
     .EXAMPLE
         %Example%
